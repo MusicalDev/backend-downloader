@@ -80,7 +80,9 @@ def descargar_zip():
                 try:
                     response = requests.get(link, stream=True, timeout=15)
                     if response.status_code == 200:
-                        zipf.writestr(f"{music}_{id}_{x_str}.jp2", response.content)
+                        # zipf.writestr(f"{music}_{id}_{x_str}.jp2", response.content)
+                        zipf.writestr(f"{instrumento}_{music}_{id}_{x_str}.jpg", response.content)
+
                         logger.info(f"Página {page} descargada exitosamente")
                     else:
                         logger.warning(f"Página {page} no encontrada (Error {response.status_code})")
